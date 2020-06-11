@@ -415,7 +415,7 @@ def ELBO_Loss(mini_batch, y_hat,\
     KL_z_F = KLD_Gaussian(q_z_F_mu, q_z_F_sig,
                           p_z_F_mu, p_z_F_sig).sum()
 
-    return rec_loss + annealing_factor * (KL_c + KL_s_0 + KL_s_t
+    return rec_loss + annealing_factor * (KL_s_0 + KL_s_t
                                           + KL_z_0 + KL_z
                                           + KL_F_loc + KL_z_F)
 
@@ -703,17 +703,20 @@ if __name__ == '__main__':
             # computing loss
                 # excluding missing locations
                 idxs_nonnan = ~torch.isnan(mini_batch)
-                annealing_factor = 0.1 # min(1.0, 0.01 + i / T_A) # inverse temperature
+                if args.long:
+                    annealing_factor = 0.1 # min(1.0, 0.01 + i / T_A) # inverse temperature
+                else:
+                    annealing_factor = 0.001
                 if args.long:
                     loss_dsarf = ELBO_Loss(mini_batch[idxs_nonnan],
                                           y_hat[idxs_nonnan], 
                                           q_c, p_c,
                                           q_s_0, p_s_0,
-                                          q_s_t[:,max(args.lag):-args.tpred], p_s_t[:,max(args.lag):-args.tpred],
+                                          q_s_t[:,max(args.lag):-tpred], p_s_t[:,max(args.lag):-tpred],
                                           q_z_0_mus, q_z_0_sigs,
                                           z_0_mu, z_0_sig,
-                                          q_z_mus[:,max(args.lag):-args.tpred], q_z_sigs[:,max(args.lag):-args.tpred],
-                                          p_z_mu[:,:,max(args.lag):-args.tpred], p_z_sig[:,:,max(args.lag):-args.tpred],
+                                          q_z_mus[:,max(args.lag):-tpred], q_z_sigs[:,max(args.lag):-tpred],
+                                          p_z_mu[:,:,max(args.lag):-tpred], p_z_sig[:,:,max(args.lag):-tpred],
                                           q_F_loc_mu, q_F_loc_sig,
                                           p_F_loc_mu, p_F_loc_sig,
                                           q_z_F_mu, q_z_F_sig,
@@ -751,7 +754,7 @@ if __name__ == '__main__':
             torch.save(dsarf.state_dict(), PATH_DSARF)
             
             #draw plots once per 10 epochs
-            if args.strain and i % 25 == 0:
+            if args.strain and i % 50 == 0:
                 plot_result(dsarf, classes, fig_PATH_train,
                             prefix = 'epoch{%.3d}_'%i,
                             ext = ".png", data_st = [dataa, data_mean, data_std],
