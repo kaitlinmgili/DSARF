@@ -10,10 +10,8 @@ Numpy, Scipy, Pytorch, Tqdm, Matplotlib, Sklearn, Json, Pandas
 
 ## Birmingham
 Short-term:
-
 `python dsarf.py -k 10 -file ./data/birmingham.mat -smod ./checkpoints/birmingham/short/ -dpath ./results_birmingham_short/ -ID birmingham -last 7 -lag 1 2 -epoch 500 -bs 30 -restore`
-
-Long-term: 
+Long-term:
 `python dsarf.py -k 10 -file ./data/birmingham.mat -smod ./checkpoints/birmingham/long/ -dpath ./results_birmingham_long/ -ID birmingham -last 7 -lag 1 2 3 18 19 20 126 127 128 -epoch 500 -bs 30 -long -restore`
 
 ## Guangzhou
