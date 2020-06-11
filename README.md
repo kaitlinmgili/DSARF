@@ -6,7 +6,7 @@ Codes and experiments for Deep switching auto-regressive factorization paper
 ## Dependencies:
 Numpy, Scipy, Pytorch, Tqdm, Matplotlib, Sklearn, Json, Pandas
 
-**Run the following snippets to restore results (from checkpoints) for each dataset for short- and long-term predictions respectively. For short-term prediction,  remove “-restore” to train from scratch, then add “-predict” to perform short-term prediction on the test set. For long-term prediction, remove “-restore” and add “-long” to train from scratch and perform long-term prediction on the test set.**
+**Run the following snippets to restore results (from checkpoints) for each dataset for short- and long-term predictions respectively. For short-term prediction,  remove `-restore` to train from scratch, then add `-predict` to perform short-term prediction on the test set. For long-term prediction, remove `-restore` and add `-long` to train from scratch and perform long-term prediction on the test set.**
 
 ## Birmingham
 Short-term: 
@@ -16,12 +16,17 @@ Long-term:
 `python dsarf.py -k 10 -file ./data/birmingham.mat -smod ./checkpoints/birmingham/long/ -dpath ./results_birmingham_long/ -ID birmingham -last 7 -lag 1 2 3 18 19 20 126 127 128 -epoch 500 -bs 30 -long -restore`
 
 ## Guangzhou
-Short-term: python dsarf.py -k 30 -file ./data/guangzhou.mat -smod ./checkpoints/guangzhou/short/ -dpath ./results_guangzhou_short/ -ID guangzhou -last 5 -lag 1 2 -epoch 500 -bs 100 -restore
-Long-term: python dsarf.py -k 30 -file ./data/guangzhou.mat -smod ./checkpoints/guangzhou/long/ -dpath ./results_guangzhou_long/ -ID guangzhou -lag 1 2 3 144 145 146 1008 1009 1010 -epoch 500 -bs 30  -last 5 -long -restore
+Short-term: 
+`python dsarf.py -k 30 -file ./data/guangzhou.mat -smod ./checkpoints/guangzhou/short/ -dpath ./results_guangzhou_short/ -ID guangzhou -last 5 -lag 1 2 -epoch 500 -bs 100 -restore`
 
-* Hangzhou 
-Short-term: python dsarf.py -k 10 -file ./data/ hangzhou.mat -smod ./checkpoints/hangzhou/short/ -dpath ./results_hangzhou_short/ -ID hangzhou -last 5 -lag 1 2 -epoch 1000 -bs 25 -restore
-Long-term: python dsarf.py -k 10 -file ./data/hangzhou.mat -smod ./checkpoints/hangzhou/long/ -dpath ./results_hangzhou_long/ -ID hangzhou -last 5 -lag 1 2 3 108 109 110 756 757 758 -epoch 1000 -bs 25 -long -restore
+Long-term: `python dsarf.py -k 30 -file ./data/guangzhou.mat -smod ./checkpoints/guangzhou/long/ -dpath ./results_guangzhou_long/ -ID guangzhou -lag 1 2 3 144 145 146 1008 1009 1010 -epoch 500 -bs 30  -last 5 -long -restore`
+
+### Hangzhou 
+Short-term: 
+`python dsarf.py -k 10 -file ./data/ hangzhou.mat -smod ./checkpoints/hangzhou/short/ -dpath ./results_hangzhou_short/ -ID hangzhou -last 5 -lag 1 2 -epoch 1000 -bs 25 -restore`
+
+Long-term: 
+`python dsarf.py -k 10 -file ./data/hangzhou.mat -smod ./checkpoints/hangzhou/long/ -dpath ./results_hangzhou_long/ -ID hangzhou -last 5 -lag 1 2 3 108 109 110 756 757 758 -epoch 1000 -bs 25 -long -restore`
 
 
 * Seattle
