@@ -3,7 +3,7 @@
 Codes and experiments for Deep switching auto-regressive factorization paper
 
 
-* Dependencies:
+# Dependencies:
 Numpy, Scipy, Pytorch, Tqdm, Matplotlib, Sklearn, Json, Pandas
 
 ** Run the following snippets to restore results (from checkpoints) for each dataset for short- and long-term predictions respectively. For short-term prediction,  remove “-restore” to train from scratch, then add “-predict” to perform short-term prediction on the test set. For long-term prediction, remove “-restore” and add “-long” to train from scratch and perform long-term prediction on the test set. **
