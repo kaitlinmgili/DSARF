@@ -1,6 +1,7 @@
 # Deep Switching Auto-Regressive Factorization (DSARF)
 
-Codes and experiments for [Deep switching auto-regressive factorization paper](https://arxiv.org/pdf/2009.05135.pdf)
+Codes and experiments for [Deep switching auto-regressive factorization paper](https://arxiv.org/pdf/2009.05135.pdf).
+DSARF performs switching dynamical systems modeling.
 
 
 ### Dependencies: 
