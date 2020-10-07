@@ -1,6 +1,6 @@
 # Deep Switching Auto-Regressive Factorization (DSARF)
 
-Codes and experiments for Deep switching auto-regressive factorization paper
+Codes and experiments for [Deep switching auto-regressive factorization paper](https://arxiv.org/pdf/2009.05135.pdf)
 
 
 ### Dependencies: 
