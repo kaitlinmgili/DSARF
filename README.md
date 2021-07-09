@@ -6,7 +6,7 @@ This [notebook](./DSARF_Examples.ipynb) includes several examples of using DSARF
 
 Also, check this [notebook](./Documentation.ipynb) for DSARF documentation and model overview.
 
-To access older version of our code see [DSARF_v0.0](./DSARF_v0.0])).
+To access older version of our code see [DSARF_v0.0](./DSARF_v0.0]).
 
 #### Dependencies: 
 Pytorch, Numpy, Scipy, Matplotlib
